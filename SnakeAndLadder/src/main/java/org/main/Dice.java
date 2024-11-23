@@ -1,23 +1,32 @@
 package org.main;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Random;
 
 /**
  *
  */
+@Getter
+@Setter
 public class Dice {
-    private int maxDiceVal;
+    private Integer numOfDices;
+    private Integer minDiceRollValue;
+    private Integer maxDiceRollValue;
 
-    /**
-     *
-     * @param maxDiceVal Denotes the size of the Dice
-     */
-    public Dice(int maxDiceVal) {
-        this.maxDiceVal = maxDiceVal;
+    public Dice(Integer numOfDices) {
+        this.numOfDices = numOfDices;
+        updateMinAndMaxDiceRollValues(numOfDices);
+    }
+
+    public void updateMinAndMaxDiceRollValues(Integer numOfDices) {
+        minDiceRollValue = numOfDices;
+        maxDiceRollValue = 6*numOfDices;
     }
 
     public int rollDice() {
-        return getRandomNumberBetween(1, maxDiceVal);
+        return getRandomNumberBetween(minDiceRollValue, maxDiceRollValue);
     }
 
     private int getRandomNumberBetween(int min, int max) throws IllegalArgumentException {

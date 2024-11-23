@@ -14,12 +14,12 @@ import java.util.Scanner;
 public class SnakeAndLadderGameBoardLoader implements LoadGameBoard{
     private GameBoard gameBoard;
     private Scanner gameBoardFileScanner;
-    private ArrayList<String> snakeAndLadderGamePlayers;
+    private ArrayList<String> snakeAndLadderGamePlayersNames;
     private SnakeAndLadderGameBoard snakeAndLadderGameBoard;
 
     public SnakeAndLadderGameBoardLoader(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
-        this.snakeAndLadderGamePlayers = new ArrayList<>();
+        this.snakeAndLadderGamePlayersNames = new ArrayList<>();
     }
 
     private void readGameBoardFile() throws FileNotFoundException {
@@ -58,7 +58,7 @@ public class SnakeAndLadderGameBoardLoader implements LoadGameBoard{
         while (numOfUsers > 0) {
             String name = gameBoardFileScanner.nextLine();
             //System.out.println("Adding a user with name "+name);
-            snakeAndLadderGamePlayers.add(name);
+            snakeAndLadderGamePlayersNames.add(name);
             numOfUsers--;
         }
     }

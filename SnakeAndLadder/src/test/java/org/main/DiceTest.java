@@ -10,15 +10,15 @@ class DiceTest {
 
     @Test
     public void testRollDice() {
-        final int maxDiceVal = 4;
+        final int numOfDices = 2;
         int diceVal;
-        Dice dice = new Dice(maxDiceVal);
+        Dice dice = new Dice(numOfDices);
 
         //Test the Random generator used in Dice class
         for (int i=0; i < 100; i++) {
             diceVal = dice.rollDice();
             System.out.println("Dice Val is "+diceVal);
-            assertTrue(isBetween(1, maxDiceVal, diceVal), "Val Produced "+ diceVal+" is in range 1 and "+maxDiceVal);
+            assertTrue(isBetween(dice.getMinDiceRollValue(), dice.getMaxDiceRollValue(), diceVal), "Val Produced "+ dice.getMinDiceRollValue()+" is in range 1 and "+dice.getMaxDiceRollValue());
         }
     }
 
